@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+body{
+		background: url(img/SYtennis1.png) no-repeat;
+		background-position-y: 130px;
+		background-position-x: 49%;
+	}
+	#box{
+		width: 1000px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	.box1{
+		overflow: hidden;
+		float: left;
+	}
+	.box2{
+		margin-left: 190px;
+	}
+	#btn,#btn3{
+		width: 100px;
+		line-height: 50px;
+		border-radius: 10px;
+		background: yellowgreen;
+		float: left;
+		color: white;
+		text-align:center ;
+		cursor:pointer;
+		margin-left: 80px;
+		font-size: 20px;
+	}
+	#btn2,#btn4{
+		width: 100px;
+		line-height: 50px;
+		border-radius: 10px;
+		background: #ff3e3e;
+		float: left;
+		color: white;
+		text-align: center;
+		cursor:pointer;
+		margin-left: 50px;
+		font-size: 20px;
+	}
+	#p,#p1{
+		width: 400px;
+		line-height: 200px;
+		height: 200px;
+		border: 2px dashed #282a2f;
+		border-radius: 10px;
+		text-align: center;
+		font-size: 50px;
+		
+		margin-bottom: 20px;
+		margin-top: 70px;
+		
+	}
+	#tou{
+		font-size: 40px;
+		color: #C455E9;
+		text-align: center;
+		margin-top: 30px;
+	}
+	#yisi{
+		font-size: 34px;
+		color: #222222;
+		text-align: center;
+		margin-top: 25px;
+	}
+	#midd{
+		font-size: 22px;
+		color:#282a2f;
+		text-align: center;
+		margin-top: 30px;
+		font-family: "新宋体";
+	}
+	#pp,#pp1{
+		font-size: 28px;
+		color:deepskyblue;
+		text-align: center;
+		margin: 0;
+		margin-bottom: 10px;
+		font-family: "新宋体";
+		font-weight: bold;
+	}
+</style>
+<body>
+	<div id="tou">
+		“阿尔法罗密欧杯”SYtennis梦幻挑战赛·年终赛
+	</div>
+	<p id="yisi">
+		女单抽签仪式
+	</p>
+	<div id="box">
+		
+		<div class="box1">
+			<p id="pp">参赛球员</p>
+			<div id="btn">开始</div>
+	    	<div id="btn2">停止</div>
+	    	<p id="p"></p>
+		</div>
+		
+		
+		<div class="box1 box2">
+			<p id="pp1">签表位置</p>
+			<div id="btn3">开始</div>
+	    	<div id="btn4">停止</div>
+	    	<p id="p1"></p>
+		</div>
+		
+		
+	</div>
+    <p id="midd">————————————————技术支持：本初哥————————————————</p>
+
+<script>
+    const btn = document.getElementById('btn');
+    const btn2 = document.getElementById('btn2');
+    const p = document.getElementById('p');
+    const btn3 = document.getElementById('btn3');
+    const btn4 = document.getElementById('btn4');
+    const p1 = document.getElementById('p1');
+    let timer = null;
+    let timer1 = null;
+    let num2=0;
+    let num3=0;
+    let arr = [,'翔翔','张雪花','王秋婷','康怡榕',
+				'马红缘','陈依果','陈江华','王珍凤',
+				'许雅斯','曹艳红','赖巧丽','陈粹萍']
+	
+	let arr1=[,1,2,3,4,5,6,7,8,9,10,11,12]
+	
+    btn.onclick = function(){
+    	 if(arr.length == 1){
+    	 	
+        	return
+        }
+    	clearInterval(timer);
+    	arr.splice(num2,1);
+    	let num = arr.length-1;
+    	console.log(arr)
+        timer = setInterval(function(){
+            p.innerText =arr[Math.round(Math.random()*num)];
+        },1);
+       
+        
+    }
+    btn2.onclick = function(){
+        clearInterval(timer);
+        let str=p.innerText;
+        num2=arr.findIndex(function(e,i){
+        return e == str;
+    })
+        //console.log(num2)
+    }
+    btn3.onclick = function(){
+    	if(arr1.length == 1){
+        	return
+        }
+    	clearInterval(timer1);
+    	arr1.splice(num3,1);
+    	let num = arr1.length-1;
+    	console.log(arr1)
+        timer1 = setInterval(function(){
+            p1.innerText =arr1[Math.round(Math.random()*num)];
+        },1);
+        
+    }
+    btn4.onclick = function(){
+        clearInterval(timer1);
+        let str=p1.innerText;
+        num3=arr1.findIndex(function(e,i){
+        return e == str;
+    })
+        //console.log(num2)
+    }
+</script>
+</body>
+</html>
